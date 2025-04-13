@@ -1,5 +1,5 @@
 # EEG-Fest
-This repo contains a source code for EEG-Fest [EEG-fest: few-shot based attention network for driver's drowsiness estimation with EEG signals]([https://arxiv.org/pdf/2305.06940.pdf](https://iopscience.iop.org/article/10.1088/2057-1976/ad0f3f/meta))
+This repo contains a source code for EEG-Fest. [EEG-fest: few-shot based attention network for driver's drowsiness estimation with EEG signals](https://arxiv.org/pdf/2305.06940.pdf](https://iopscience.iop.org/article/10.1088/2057-1976/ad0f3f/meta)
 
 # Dataset Information
 ## SEED-VIG
