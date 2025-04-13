@@ -1,6 +1,5 @@
 # EEG-Fest
-This repo contains a source code for EEG-Fest.The EEG-Fest model, as shown in Figure, is composed of a feature extraction module, a feature relation module, and a decision module.   
-![framework](https://github.com/dingmike001/EEG-Fest/blob/main/img/Framework.png?raw=true)
+This repo contains a source code for EEG-Fest [EEG-fest: few-shot based attention network for driver's drowsiness estimation with EEG signals]([https://arxiv.org/pdf/2305.06940.pdf](https://iopscience.iop.org/article/10.1088/2057-1976/ad0f3f/meta))
 
 # Dataset Information
 ## SEED-VIG
@@ -16,7 +15,16 @@ This dataset is not collected in an experiment under driving conditions. 15 subj
 
 Since EEG data includes artefact information of subjects' muscular motion or ocular motion, we need to remove these artefacts to avoid abnormal results caused by them. The Automatic Artifact Removal (AAR) plug-in for EEGLAB\cite{eeglab2022}, a MATLAB toolbox, is used to do such work.
 
-## Reference
-[1] Wei-Long Zheng and Bao-Liang Lu. A multimodal approach to estimating vigilance using eeg and forehead eog. Journal of neural engineering, 14(2):026017, 2017.
-[2] Zehong Cao, Chun-Hsiang Chuang, Jung-Kai King, and Chin-Teng Lin. Multi-channel eeg recordings during a sustained-attention driving task. Scientific data, 6(1):1–8, 2019.
-[3] Dongrui Wu, Vernon J Lawhern, Stephen Gordon, Brent J Lance, and Chin-Teng Lin. Driver drowsiness estimation from eeg signals using online weighted adaptation regularization for regression (owarr). IEEE Transactions on Fuzzy Systems, 25(6):1522–1535, 2016.
+## Citing
+```ruby
+@article{ding2023saliendet,
+  title={SalienDet: A saliency-based feature enhancement algorithm for object detection for autonomous driving},
+  author={Ding, Ning and Zhang, Ce and Eskandarian, Azim},
+  journal={IEEE Transactions on Intelligent Vehicles},
+  volume={9},
+  number={1},
+  pages={2624--2635},
+  year={2023},
+  publisher={IEEE}
+}
+```
