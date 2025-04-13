@@ -200,39 +200,15 @@ class CrossAttention_Distance(nn.Module):
         cam_features = self.cross_attention(support_features, query_features)
         s_cam_f = cam_features['s_ca_f']
         q_cam_f = cam_features['q_ca_f']
-        # s_cam_f = self.max2d1(s_cam_f)
-        # q_cam_f = self.max2d2(q_cam_f)
+       
         s_cam_f = self.avg2d1(s_cam_f)
         q_cam_f = self.avg2d2(q_cam_f)
 
-        # s_cam_f=s_cam_f.unsqueeze(1)
-        # q_cam_f=q_cam_f.unsqueeze(1)
-
-        # s_cam_f = self.conv_block1(s_cam_f)
-        # q_cam_f = self.conv_block2(q_cam_f)
-        #
+ 
         s_cam_f = s_cam_f.squeeze(2)
         q_cam_f = q_cam_f.squeeze(2)
-        # s_cam_f = torch.transpose(s_cam_f, 2, 1)
-        # q_cam_f = torch.transpose(q_cam_f, 2, 1)
-        # s_cam_f = self.lin1(s_cam_f)
-        # q_cam_f = self.lin2(q_cam_f)
-        # s_cam_f = torch.transpose(s_cam_f, 2, 1)
-        # q_cam_f = torch.transpose(q_cam_f, 2, 1)
-        # s_cam_f = self.norm1(s_cam_f)
-        # q_cam_f = self.norm2(q_cam_f)
         score = F.pairwise_distance(s_cam_f, q_cam_f, p=2)
-        # score = torch.reshape(score, (self.cfg.model_parameters.classes,self.cfg.train_parameters.shot_num))
-        # score = torch.mean(score, dim=-1)
         score = -score
-
-        # support_features = self.max2d1(support_features)
-        # query_features = self.max2d2(query_features)
-        #
-        # support_features = support_features.squeeze()
-        # query_features = query_features.squeeze()
-        # score = F.pairwise_distance(support_features, query_features, p=2)
-        # score = -score
 
         return score
 
@@ -301,7 +277,6 @@ class CrossAttention_Distance_4_class(nn.Module):
         self.max2d2 = nn.MaxPool2d((5, 1))
         self.conv_block1 = conv_block()
         self.conv_block2 = conv_block()
-
         self.avg2d1 = nn.AvgPool2d((5, 1))
         self.avg2d2 = nn.AvgPool2d((5, 1))
         self.lin1 = nn.Linear(3, 4)
@@ -324,27 +299,10 @@ class CrossAttention_Distance_4_class(nn.Module):
         s_cam_f = self.avg2d1(s_cam_f)
         q_cam_f = self.avg2d2(q_cam_f)
 
-        # s_cam_f=s_cam_f.unsqueeze(1)
-        # q_cam_f=q_cam_f.unsqueeze(1)
-
-        # s_cam_f = self.conv_block1(s_cam_f)
-        # q_cam_f = self.conv_block2(q_cam_f)
-        #
         s_cam_f = s_cam_f.squeeze(2)
         q_cam_f = q_cam_f.squeeze(2)
         score = F.pairwise_distance(s_cam_f, q_cam_f, p=2)
-        # score = torch.reshape(score, (self.cfg.model_parameters.classes,self.cfg.train_parameters.shot_num))
-        # score = torch.mean(score, dim=-1)
         score = -score
-
-        # support_features = self.max2d1(support_features)
-        # query_features = self.max2d2(query_features)
-        #
-        # support_features = support_features.squeeze()
-        # query_features = query_features.squeeze()
-        # score = F.pairwise_distance(support_features, query_features, p=2)
-        # score = -score
-
         return score
 
 
@@ -384,7 +342,6 @@ class CrossAttention_flatten_2class(nn.Module):
 
         s_cam_f = s_cam_f.squeeze(2)
         q_cam_f = q_cam_f.squeeze(2)
-        # q_cam_f_relu = F.sigmoid(q_cam_f)
         q_cam_f_relu = F.relu(q_cam_f)
         q_cam_f_relu = torch.flatten(q_cam_f_relu, start_dim=1)
 
