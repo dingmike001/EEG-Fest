@@ -1,6 +1,10 @@
 # EEG-Fest
 This repo contains a source code for EEG-Fest. [EEG-fest: few-shot based attention network for driver's drowsiness estimation with EEG signals](https://iopscience.iop.org/article/10.1088/2057-1976/ad0f3f/meta)
 
+## EEG-Fest Paradigm
+The EEG-Fest model is composed of four blocks: feature extraction, similarity  highlight, anomalous EEG detection and drowsiness  classification.
+![Alt text](https://github.com/dingmike001/EEG-Fest/blob/main/img/Framework.png?raw=true)
+
 # Dataset Information
 ## SEED-VIG
 The dataset was collected in a simulated driving system. 23 subjects take part in the experiment. Each trial in the dataset includes EEG signals of a subject in the whole experiment process. The experiment duration is 2 hours. 17 channels' EEG signals are recorded from every subject and sampled at 200Hz. This dataset uses PERCLOS as labels. Eye closing time is recorded every 8 seconds interval time to calculate PERCLOS. A threshold of 0.7 is used to indicate if a subject is drowsy.[1] We divide each trail into 885 samples, each sample contains 8-second length of EEG data.  
